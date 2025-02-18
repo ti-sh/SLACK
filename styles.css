@@ -323,6 +323,16 @@ ul li {
     cursor: pointer;
     transform: scale(1.1);
 }
+.a {
+    color: inherit;
+    text-decoration: none;
+    }
+ section .a:hover {
+        color: #ff5500; 
+        text-decoration: underline;  
+      }
+  
+  
 /* ContactUs */
 .hero{
     width: 100%;
