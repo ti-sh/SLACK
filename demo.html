@@ -4,68 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:Jost:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Jost', sans-serif;
+        }
+
+        .slider-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+        }
+
+        .slider-images {
+            display: flex;
+            align-items: center;
+            gap: 21px;
+        }
+
+        .slider-img {
+            width: 200px;
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+            transition: .7s ease;
+            text-align: center;
+        }
+
+        .slider-img model-viewer {
+            width: 200px;
+            height: 200px;
+        }
+
+        .slider-img h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: black;
+            margin-top: 10px;
+        }
+
+        .details {
+            display: none;
+            text-align: center;
+        }
+
+        .slider-img.active {
+            width: 400px;
+            height: 400px;
+        }
+
+        .slider-img.active model-viewer {
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider-img.active .details {
+            display: block;
+        }
+    </style>
 </head>
-<link rel="stylesheet" href="styles.css">
-<script src="script.js"></script>
 <body>
-    <header>
-        <img src="Images/download.png" alt="Logo">
-        <div>
-            <h1>Advancing Medicine with Technology & AI</h1>
-        </div>
-        <div class="nav">
-            <div class="navigation">
-                <ul>
-                    <li class="list">
-                        <a href="index.html">
-                            <span class="icon">
-                                <ion-icon name="home-outline"></ion-icon>
-                            </span>
-                            <span class="text">Home</span>
-                        </a>
-                    </li>
-                    <li class="list active">
-                        <a href="AboutUs.html">
-                            <span class="icon">
-                                <ion-icon name="person-outline"></ion-icon>
-                            </span>
-                            <span class="text">Profile</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="information.html">
-                            <span class="icon">
-                                <ion-icon name="information-circle-outline"></ion-icon>
-                            </span>
-                            <span class="text">information</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a href="ContactUS.html">
-                            <span class="icon">
-                                <ion-icon name="mail-outline"></ion-icon>
-                            </span>
-                            <span class="text">Contact US</span>
-                        </a>
-                    </li>
-                    <div class="indicater"></div>
-                </ul>
-            </div>
-            <script>
-                const list=document.querySelectorAll('.list');
-                function activeLink(){
-                    list.forEach((item)=>
-                item.classList.remove('active'));
-                this.classList.add('active');
-                }
-                list.forEach((item)=>
-            item.addEventListener('click',activeLink));
-            </script>
-            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        </div>
-    </header>
-<main>
+    
     <section><h3> The Begining of a new development </h3>
         <div class="gallery-wrap">
             <img src="Images/pleft.png" id="backBtn">
@@ -83,35 +92,116 @@
             </div>
             <img src="Images/pnext.png" id="nextBtn">
         </div>
-    </section>
-    <h3>  An Innovation Not Far Away: Transforming Wound Diagnostics with 3D Scanning  </h3>
-    <div>
-        <img src="Images/leo.png" alt="3D Leo" class="leo">
-        <p>
-            We have identified an existing 3D scanner, the Artec Leo, as a key component for implementing our diagnostic system. <br>
-            This cutting-edge handheld scanner offers wireless operation, real-time AI-driven processing, and high-resolution structured-light scanning, making it highly suitable for capturing detailed 3D models of wounds. <br>
-            By incorporating Artec Leo into our system, we can accurately assess wound dimensions, tissue structure, and healing progress. When combined with thermal imaging for blood flow analysis and ultrasound for deeper circulation insights, this technology will significantly enhance precision diagnostics and treatment planning for injured patients.
-        </p>
-    </div>
-    <model-viewer id="threedd" src="wounded_hand.glb" autoplay camera-controls disable-zoom auto-rotate shadow-intersity="1">
-
-    </model-viewer>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-   </section>
-   <script>
-    let scrollContainer = document.querySelector(".gallery");
-    let backBtn = document.getElementById("backBtn");
-    let nextBtn = document.getElementById("nextBtn");
-
-    nextBtn.addEventListener("click", () => {
-        scrollContainer.style.scrollBehavior = "smooth"; 
-        scrollContainer.scrollLeft += 900;
-    });
-
-    backBtn.addEventListener("click", () => {
-        scrollContainer.style.scrollBehavior = "smooth"; 
-        scrollContainer.scrollLeft -= 900;
-    });
-   </script>
+        <section>
+         <h3>  An Innovation Not Far Away: Transforming Wound Diagnostics with 3D Scanning  </h3>
+         <div>
+             <img src="Images/leo.png" alt="3D Leo" class="leo">
+             <p>
+                 We have identified an existing 3D scanner, the Artec Leo, as a key component for implementing our diagnostic system. <br>
+                 This cutting-edge handheld scanner offers wireless operation, real-time AI-driven processing, and high-resolution structured-light scanning, making it highly suitable for capturing detailed 3D models of wounds. <br>
+                 By incorporating Artec Leo into our system, we can accurately assess wound dimensions, tissue structure, and healing progress. When combined with thermal imaging for blood flow analysis and ultrasound for deeper circulation insights, this technology will significantly enhance precision diagnostics and treatment planning for injured patients.
+             </p>
+         </div> <br><br>
+         <h3> A Gallery of 3D models </h3>
+         <div> <p>
+            This gallery presents a diverse collection of meticulously crafted 3D models depicting various wounded human body parts. Each model captures intricate details of injuries, including cuts, bruises, burns, fractures, and other trauma-related conditions. Designed for educational, medical, and artistic purposes, these realistic representations offer valuable insights into human anatomy, wound pathology, and medical treatment procedures. Whether for medical training, forensic studies, or digital art reference, this collection provides a comprehensive visual exploration of injuries affecting different parts of the human body. 
+         </p></div>
+         <section class="slider-container">
+            <div class="slider-images">
+                <div class="slider-img">
+                    <model-viewer src="wounded_hand.glb" autoplay camera-controls disable-zoom auto-rotate shadow-intensity="1"></model-viewer>
+                    <h1>Hand</h1>
+                    <div class="details">
+                        <p>Wounded hand</p>
+                    </div>
+                </div>
+                <div class="slider-img">
+                    <model-viewer src="a_human_bellly_with_g_0214221227_texture.glb" autoplay camera-controls disable-zoom auto-rotate shadow-intensity="1"></model-viewer>
+                    <h1>Chest</h1>
+                    <div class="details">
+                        <p>Gunshot</p>
+                    </div>
+                </div>
+                <div class="slider-img">
+                    <model-viewer src="Gunshot_wounds_to_hum_0217145001_texture.glb" autoplay camera-controls disable-zoom auto-rotate shadow-intensity="1"></model-viewer>
+                    <h1>Wounds</h1>
+                    <div class="details">
+                        <p>Explosion wounds</p>
+                    </div>
+                </div>
+                <div class="slider-img">
+                    <model-viewer src="burned_human_face__0217152725_texture.glb" autoplay camera-controls disable-zoom auto-rotate shadow-intensity="1"></model-viewer>
+                    <h1>Face</h1>
+                    <div class="details">
+                        <p>Burnt face</p>
+                    </div>
+                </div>
+                <div class="slider-img">
+                    <model-viewer src="wounded_leg__0217152848_texture.glb" autoplay camera-controls disable-zoom auto-rotate shadow-intensity="1"></model-viewer>
+                    <h1>Leg</h1>
+                    <div class="details">
+                        <p>Mine explosion</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            jQuery(document).ready(function($) {
+                let initialSizes = [];
+    
+                // Store the initial width and height of each model before any interaction
+                $('.slider-img').each(function(index) {
+                    const modelViewer = $(this).find('model-viewer');
+                    initialSizes[index] = {
+                        width: modelViewer.width(),
+                        height: modelViewer.height()
+                    };
+                });
+    
+                // On click event to handle active state
+                $('.slider-img').on('click', function() {
+                    const $this = $(this);
+                    const modelViewer = $this.find('model-viewer');
+    
+                    // If the clicked model is already active, do nothing
+                    if ($this.hasClass('active')) {
+                        return;
+                    }
+    
+                    // If another model is clicked, reset all models to their initial size
+                    $('.slider-img').removeClass('active');
+                    $('model-viewer').each(function(index) {
+                        $(this).css({
+                            width: initialSizes[index].width + 'px',
+                            height: initialSizes[index].height + 'px'
+                        });
+                    });
+    
+                    // Now activate the clicked model and enlarge it
+                    $this.addClass('active');
+                    modelViewer.css({
+                        width: '100%',
+                        height: '100%'
+                    });
+                });
+            });
+        </script>
+        <script>
+            let scrollContainer = document.querySelector(".gallery");
+            let backBtn = document.getElementById("backBtn");
+            let nextBtn = document.getElementById("nextBtn");
+        
+            nextBtn.addEventListener("click", () => {
+                scrollContainer.style.scrollBehavior = "smooth"; 
+                scrollContainer.scrollLeft += 900;
+            });
+        
+            backBtn.addEventListener("click", () => {
+                scrollContainer.style.scrollBehavior = "smooth"; 
+                scrollContainer.scrollLeft -= 900;
+            });
+           </script>
 </body>
 </html>
